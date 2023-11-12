@@ -15,7 +15,7 @@ def setup(request):
     options.add_experimental_option("detach", True)
     driver = webdriver.Chrome(options=options, service=ChromeService(ChromeDriverManager().install()))
     wait = WebDriverWait(driver, 30)
-    driver.get("https://www.jumia.co.ke/phones-tablets/")
+    driver.get("https://www.yatra.com")
     driver.maximize_window()
     request.cls.wait = wait
     request.cls.driver = driver
