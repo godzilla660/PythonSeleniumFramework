@@ -1,7 +1,6 @@
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
-from selenium.webdriver.support.wait import WebDriverWait
 from webdriver_manager.chrome import ChromeDriverManager
 
 
@@ -14,9 +13,10 @@ def setup(request):
     options.add_experimental_option("excludeSwitches", ["enable-automation"])
     options.add_experimental_option("detach", True)
     driver = webdriver.Chrome(options=options, service=ChromeService(ChromeDriverManager().install()))
-    wait = WebDriverWait(driver, 30)
+    #wait = WebDriverWait(driver, 30)
     driver.get("https://www.yatra.com")
     driver.maximize_window()
-    request.cls.wait = wait
+    #request.cls.wait = wait
     request.cls.driver = driver
     yield
+    driver.close()
