@@ -19,4 +19,4 @@ def setup(request):
     #request.cls.wait = wait
     request.cls.driver = driver
     yield
-    driver.close()
+
