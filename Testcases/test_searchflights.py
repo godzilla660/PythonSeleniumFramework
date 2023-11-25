@@ -7,6 +7,9 @@ from Utilities.utils import Utils
 
 @pytest.mark.usefixtures("setup")
 class TestSearchAndVerifyFilter(softest.TestCase):
+    def __init__(self, driver):
+        super().__init__(driver)
+        self.driver = driver
 
     @pytest.fixture(autouse=True)
     def class_setup(self):
@@ -22,6 +25,9 @@ class TestSearchAndVerifyFilter(softest.TestCase):
     def test_search_2(self):
         self.launch_page.search_flights("JKF", "Mumbai")
         self.launch_page.click_on_search_flights_button()
+
+
+
         #self.flight_results.click_filter_flights()
         #launch_page.depart_from("New Delhi")
         # launch_page.fillDepartLocation("New Delhi")
